@@ -23,8 +23,6 @@ async function  StartServer(){
 }
 function testing1(){
     return 0;
-}
-function testing5(){
-    return false;
-}
+};
+const x=testing1();
 StartServer();
