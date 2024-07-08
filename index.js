@@ -23,5 +23,6 @@ async function  StartServer(){
 }
 function testing1(){
     return 0;
-}
+};
+const x=testing1();
 StartServer();
