@@ -2,7 +2,7 @@ const User = require('./model/userSchema');//parent
 const resolvers ={
     Query:{
         getUsers: async(_,{id})=>{return await User.findById(id);},
-        getUsersall: async()=>{return await User.find();}
+        getAllUsers: async()=>{return await User.find();}
     },
     Mutation:{
         createUser: async (_,{input})=>{
