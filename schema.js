@@ -12,8 +12,8 @@ input createUserInput{
     password:String!
 }
 type Query {
-    getUsers(id:ID!):User
-    getUsersall:[User]
+    getUsers(id:ID!):User,
+    getAllUsers:[User]
 }
 type Mutation{
     createUser(input:createUserInput!):User
