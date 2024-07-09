@@ -1,13 +1,14 @@
-const { User } = require('./resolvers');
-const fetchData=require('./test/api')
+//api.test.js
+const fetchData = require('./test/api');
 
 test('GET /users api data',async()=>{
-    const data=await fetchData();
-    console.log(data);
+    const data = await fetchData();
+    // console.log(data);
     expect(data).toHaveProperty('getAllUsers');
-    data.getAllUsers.forEach(User => {
-        expect(User).toHaveProperty('id')
-        expect(User).toHaveProperty('name')
-        expect(User).toHaveProperty('password')
-    });
+    //test if all data has 4 pars 
+    data.getAllUsers.forEach(user=>{
+        expect(user).toHaveProperty('id');
+        expect(user).toHaveProperty('name');
+        expect(user).toHaveProperty('email');
+    })
 })
