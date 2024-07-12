@@ -8,21 +8,26 @@ const userApiFromRouter =
 require('./routes/userRoutes') //import
 const app = express() 
 const port = 3001;
-const url= 'mongodb+srv://abhishekbasvrajgowda:qeMg9gg8zIq3WU3K@cluster0.ykctmzw.mongodb.net/';
+const url= 'mongodb+srv://nbsnarahari:Ds6xcjJ0rO6pXSyp@cluster0.gpinard.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
 app.use(express.json())
 app.use(cors()) //using cors
-mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{}).catch((err)=>{})
+mongoose.connect(url,{useNewUrlParser:true,
+useUnifiedTopology:true})
+.then(()=>{})
+.catch((err)=>{})
+
 const server = new ApolloServer({typeDefs,resolvers});
 app.use('/users',userApiFromRouter);//add router
 
 async function StartServer(){
    await server.start();
    server.applyMiddleware({app});
-   const httpServer= app.listen(port,()=>{
+   app.listen(port,()=>{
     console.log('Server Live 3001');
    })
-   return httpServer;
+
 }
 
-
-module.exports={app,StartServer};
+StartServer();
+module.exports={app};

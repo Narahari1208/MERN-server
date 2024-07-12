@@ -1,4 +1,4 @@
-name: Auto Merge Main to Testing in server
+name: Auto Merge Main to Testing in Client
 
 on:
   push:
@@ -28,4 +28,3 @@ jobs:
           git checkout testing
           git merge -X theirs main --allow-unrelated-histories
           git push origin testing
-      
